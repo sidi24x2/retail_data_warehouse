@@ -8,29 +8,28 @@ Script Purpose :
 =======================================================================
 */
 
-IF OBJECT_ID('bronze.crm_customers' , 'U') IS NOT NULL 
+IF OBJECT_ID ('bronze.crm_customers')IS NOT NULL 
 	DROP TABLE bronze.crm_customers
 GO
-
 CREATE TABLE bronze.crm_customers (
 	customer_id	INT,
-	first_name NVARCHAR(50),
-	last_name NVARCHAR(50),
-	city NVARCHAR(50),
-	signup_date DATE
-	)
+	first_name VARCHAR(50),
+	last_name VARCHAR(50),
+	city VARCHAR(50),
+	signup_date VARCHAR(50)
+)
 
-IF OBJECT_ID('bronze.crm_orders' , 'U') IS NOT NULL 
+IF OBJECT_ID ('bronze.crm_orders')IS NOT NULL 
 	DROP TABLE bronze.crm_orders
 GO
-
 CREATE TABLE bronze.crm_orders (
 	order_id INT,
 	customer_id	INT,
 	store_id INT,
-	order_date DATE,
+	order_date NVARCHAR(50),
 	date_id INT
 )
+
 
 IF OBJECT_ID('bronze.erp_order_items' , 'U') IS NOT NULL 
 	DROP TABLE bronze.erp_order_items
@@ -52,8 +51,8 @@ CREATE TABLE bronze.erp_products (
 	product_id INT,
 	product_name NVARCHAR(50),
 	category NVARCHAR(50),
-	price INT
-)
+	price DECIMAL
+	)
 
 IF OBJECT_ID('bronze.erp_stores' , 'U') IS NOT NULL 
 	DROP TABLE bronze.erp_stores
@@ -64,4 +63,3 @@ CREATE TABLE bronze.erp_stores (
 	store_name NVARCHAR(50),
 	region NVARCHAR(50)
 	)
-
